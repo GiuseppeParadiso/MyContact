@@ -22,27 +22,32 @@ public class DeleteContact extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String id = request.getParameter("id");
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		cid=Integer.parseInt(id);
+		ContactModel contatto=ContactDAO.getContactById(Integer.parseInt(id));
+		HttpSession session=request.getSession();
+		session.setAttribute("contact", contatto);
+		request.getRequestDispatcher("delete.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		String save=request.getParameter("save");
-		if (id!=null){
-			cid=Integer.parseInt(id);
-			ContactModel contatto=ContactDAO.getContactById(Integer.parseInt(id));
-			HttpSession session=request.getSession();
-			session.setAttribute("contact", contatto);
-			request.getRequestDispatcher("delete.jsp").forward(request, response);
-		}
-		else if (save.equals("1")){
+//		String id = request.getParameter("id");
+//		String save=request.getParameter("save");
+//		if (id!=null){
+//			cid=Integer.parseInt(id);
+//			ContactModel contatto=ContactDAO.getContactById(Integer.parseInt(id));
+//			HttpSession session=request.getSession();
+//			session.setAttribute("contact", contatto);
+//			request.getRequestDispatcher("delete.jsp").forward(request, response);
+//		}
+//		else if (save.equals("1")){
 			ContactDAO.deleteContact(cid);
 			response.sendRedirect("list");
-		}
+//		}
 	}
 
 }

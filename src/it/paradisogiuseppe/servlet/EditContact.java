@@ -25,23 +25,28 @@ public class EditContact extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String id = request.getParameter("id");
+		ContactModel contatto=ContactDAO.getContactById(Integer.parseInt(id));
+		previousId=Integer.parseInt(id);
+		HttpSession session=request.getSession();
+		session.setAttribute("contact", contatto);
+		request.getRequestDispatcher("update.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		String save=request.getParameter("save");
-		if (id!=null){
-			ContactModel contatto=ContactDAO.getContactById(Integer.parseInt(id));
-			previousId=Integer.parseInt(id);
-			HttpSession session=request.getSession();
-			session.setAttribute("contact", contatto);
-			request.getRequestDispatcher("update.jsp").forward(request, response);
-		}
-		else if (save.equals("1")){
+//		String id = request.getParameter("id");
+//		String save=request.getParameter("save");
+//		if (id!=null){
+//			ContactModel contatto=ContactDAO.getContactById(Integer.parseInt(id));
+//			previousId=Integer.parseInt(id);
+//			HttpSession session=request.getSession();
+//			session.setAttribute("contact", contatto);
+//			request.getRequestDispatcher("update.jsp").forward(request, response);
+//		}
+//		else if (save.equals("1")){
 			String nome=request.getParameter("nome");
 			String cognome=request.getParameter("cognome");
 			String telefono=request.getParameter("telefono");
@@ -53,7 +58,7 @@ public class EditContact extends HttpServlet {
 //			logger.info(request.getParameter("nome"));
 
 			response.sendRedirect("list");
-		}
+//		}
 //		request.getRequestDispatcher("update.jsp").forward(request, response);
 	}
 

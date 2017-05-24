@@ -8,7 +8,7 @@
 <title>Modifica Contatto</title>
 </head>
 <body>
-	<form action="update?save=1" method="post">
+	<form action="update" method="post">
 		<div>
 			<label>Nome</label>
 			<input type="text" id="nome" name="nome" value="${contact.nome}">

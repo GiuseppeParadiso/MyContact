@@ -7,7 +7,7 @@
 <title>Elimina Contatto</title>
 </head>
 <body>
-	<form action="delete?save=1" method="post">
+	<form action="delete" method="post">
 		
 		<div>
 			Dati Contatto da eliminare: <br>

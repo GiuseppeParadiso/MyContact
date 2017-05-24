@@ -29,10 +29,12 @@
 						<td> ${item.cognome}</td>
 						<td> ${item.telefono}</td>
 						<td> ${item.email}</td>
- 					<form action="update?id=${item.id }" method="post">
+ 					<form action="update" method="get">
+ 						<input type="hidden" name="id" value=${item.id }>
 						<td><input type="submit" name="aggiorna" value="Aggiorna"></td>
 					</form>
-					<form action="delete?id=${item.id }" method="post">
+					<form action="delete" method="get">
+						<input type="hidden" name="id" value=${item.id }>
 						<td><input type="submit" name="cancella" value="Cancella"></td>
 					</form>
 					
