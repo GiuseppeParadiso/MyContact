@@ -16,7 +16,6 @@
 			<label>Telefono: ${contact.telefono}</label><br>
 			<label>Email: ${contact.email}</label><br>
 		</div>
-	
 		<input type="submit" value="Conferma" id="conferma">
 	</form>
 </body>

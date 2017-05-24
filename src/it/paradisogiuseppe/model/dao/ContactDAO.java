@@ -5,8 +5,11 @@ import java.util.List;
 import it.paradisogiuseppe.model.ContactModel;
 
 public class ContactDAO {
+	
 	private static List<ContactModel> listContacts=new ArrayList<>();;
 	private static int ID_MAX=0;
+	
+	
 	public ContactDAO(){
 		
 		populate();
@@ -54,8 +57,9 @@ public class ContactDAO {
 		while(!fine){
 			if(listContacts.get(i).getId()==contact.getId()){
 				fine=true;
-				listContacts.remove(i);
-				listContacts.add(i, contact);
+//				listContacts.remove(i);
+//				listContacts.add(i, contact);
+				listContacts.set(i, contact);
 			}
 			i++;
 		}

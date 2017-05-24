@@ -11,13 +11,13 @@
 	<form action="save" method="post">
 		<div>
 			<label>Nome</label>
-			<input type="text" id="nome" name="nome">
+			<input type="text" id="nome" name="nome" required>
 			
 			<label>Cognome</label>
-			<input type="text" id="cognome" name="cognome">
+			<input type="text" id="cognome" name="cognome" required>
 			
 			<label>Telefono</label>
-			<input type="text" id="telefono" name="telefono">
+			<input type="text" id="telefono" name="telefono" required>
 			
 			<label>Email</label>
 			<input type="text" id="email" name="email">

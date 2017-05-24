@@ -1,6 +1,7 @@
 package it.paradisogiuseppe.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.paradisogiuseppe.model.ContactModel;
+import it.paradisogiuseppe.model.StringValidation;
 import it.paradisogiuseppe.model.dao.ContactDAO;
 
 /**
@@ -34,16 +36,25 @@ public class SaveContact extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
 		
 		String nome=request.getParameter("nome");
 		String cognome=request.getParameter("cognome");
 		String telefono=request.getParameter("telefono");
 		String email=request.getParameter("email");
 		
-		ContactModel contact = new ContactModel(ContactDAO.getIdMax(), nome, cognome, telefono, email);
-		ContactDAO.addContact(contact);
-		
-		response.sendRedirect("list");
+		if((!(StringValidation.check(StringValidation.getEmailRegex(), email))) || (!(StringValidation.check(StringValidation.getTelRegex(), telefono)))){
+			   out.println("<script type=\"text/javascript\">");
+			   out.println("alert('Telefono o email non corretti!');");
+			   out.println("location='save.jsp';");
+			   out.println("</script>");
+		}else{
+			
+			ContactModel contact = new ContactModel(ContactDAO.getIdMax(), nome, cognome, telefono, email);
+			ContactDAO.addContact(contact);
+			
+			response.sendRedirect("list");
+		}
 
 	}
 

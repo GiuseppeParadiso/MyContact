@@ -11,13 +11,13 @@
 	<form action="update" method="post">
 		<div>
 			<label>Nome</label>
-			<input type="text" id="nome" name="nome" value="${contact.nome}">
+			<input type="text" id="nome" name="nome" value="${contact.nome}" required>
 			
 			<label>Cognome</label>
-			<input type="text" id="cognome" name="cognome" value="${contact.cognome}">
+			<input type="text" id="cognome" name="cognome" value="${contact.cognome}" required>
 			
 			<label>Telefono</label>
-			<input type="text" id="telefono" name="telefono" value="${contact.telefono}">
+			<input type="text" id="telefono" name="telefono" value="${contact.telefono}" required>
 			
 			<label>Email</label>
 			<input type="text" id="email" name="email" value="${contact.email}">

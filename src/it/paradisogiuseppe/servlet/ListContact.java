@@ -31,7 +31,7 @@ public class ListContact extends HttpServlet {
 		
 		ContactDAO.populate();
 		List<ContactModel>  listContacts=ContactDAO.getContacts();
-		logger.info(listContacts.toString());
+//		logger.info(listContacts.toString());
 		HttpSession session=request.getSession();
 		session.setAttribute("listContacts", listContacts);
 		
@@ -42,10 +42,8 @@ public class ListContact extends HttpServlet {
 		 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 		 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		String referrer = request.getHeader("referer");
-//		
+//		String referrer = request.getHeader("referer");	
 //		logger.warning("the servlet was being called from here: " + referrer);
-		
 //		request.getRequestDispatcher("save.jsp").forward(request, response);
 	}
 	

@@ -10,6 +10,9 @@
 </head>
 <body>
 	<div id="div">
+		<form action="save" method="get">
+			<input type="submit" value="+" name="aggiungi" style="float:right;">
+		</form>
 		<table id="table" style="width:80%;  border: 1px solid black; padding: 15px;">
 			<tr>
 				<th>ID</th>
@@ -41,9 +44,7 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<form action="save" method="get">
-			<input type="submit" value="+" name="aggiungi" style="float:right;">
-		</form>
+
 	</div>
 </body>
 </html>
