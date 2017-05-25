@@ -1,4 +1,4 @@
-package it.paradisogiuseppe.model.dao;
+package it.paradisogiuseppe.dao;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import it.paradisogiuseppe.dao.ContactDAO;
 import it.paradisogiuseppe.model.ContactModel;
 import it.paradisogiuseppe.model.StringValidation;
-import it.paradisogiuseppe.model.dao.ContactDAO;
 
 /**
  * Servlet implementation class EditContacts
